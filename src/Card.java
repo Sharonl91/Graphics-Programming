@@ -107,4 +107,15 @@ public class Card {
         }
         return hand;
     }
+    public static ArrayList<Card> switchCard(ArrayList<Card> hand) {
+        ArrayList<Card> deck = Card.buildDeck();
+        for (int i = 1; i < hand.size(); i++) {
+            int r = (int)(Math.random()*deck.size());
+            Card c = deck.remove(r);
+            if (hand.get(i).getHighlight()){
+                hand.set(i,c);
+            }
+        }
+        return hand;
+    }
 }
