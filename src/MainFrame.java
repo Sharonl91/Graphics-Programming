@@ -1,15 +1,18 @@
 import javax.swing.JFrame;
+import java.util.ArrayList;
 
 public class MainFrame extends JFrame implements Runnable {
 
     private DrawPanel p;
+    private ArrayList<Card> deck;
     private Thread windowThread;
 
     public MainFrame(String display) {
         super(display);
         int frameWidth = 500;
         int frameHeight = 500;
-        p = new DrawPanel();
+        deck = Card.buildDeck();
+        p = new DrawPanel(deck);
         this.add(p);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(frameWidth, frameHeight);
